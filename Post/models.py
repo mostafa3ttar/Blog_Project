@@ -13,6 +13,8 @@ class Post (models.Model):
     # img = models.ImageField(upload_to='post_img/%y%m%d', default='post_img/default.png')
     created = models.DateTimeField(default=timezone.now)
     
+    active = models.BooleanField(default=True)
+    
     #to appeare the name of the data we added in admin panel
     def __str__(self):
         return self.title

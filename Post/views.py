@@ -1,6 +1,4 @@
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
-
+from django.shortcuts import render , get_object_or_404 , redirect
 # Create your views here.
 
 from .models import Post
@@ -8,6 +6,7 @@ from .forms import PostForm
 
 def all_posts(request):
     all_posts = Post.objects.all()
+    # all_posts = Post.objects.filter(active=True)
     context = {
         'all_posts' : all_posts,
         
@@ -16,7 +15,7 @@ def all_posts(request):
 
 
 
-def post(request, id):
+def post_detail(request, id):
     # post = Post.objects.get(id = id)
     post = get_object_or_404(Post, id=id)
     context = {
@@ -33,6 +32,7 @@ def create_post(request):
             new_form = form.save(commit=False)
             new_form.user = request.user
             new_form.save()
+            return redirect('/')
         
     else:
         form = PostForm()
@@ -52,6 +52,7 @@ def edit_post(request, id):
             new_form = form.save(commit=False)
             new_form.user = request.user
             new_form.save()
+            return redirect('Post:Single-post', id=id)
         
     else:
         form = PostForm( instance=post)
@@ -60,3 +61,13 @@ def edit_post(request, id):
         
     }
     return render(request, 'post/edit.html', context)
+
+
+def delete_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('/')
+    
+
+    return render(request, 'post/delete_post.html', {'post': post})

@@ -1,0 +1,6 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ post.title }}"?</p>
+    <button type="submit">Yes, Delete</button>
+    <a href="{% url 'Post:Single-post' post.id %}">Cancel</a>
+</form>
