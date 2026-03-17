@@ -24,3 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Post.urls', namespace='post')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

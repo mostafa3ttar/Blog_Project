@@ -1,0 +1,11 @@
+<h1>Hello, Welcome in our Blog<h1>
+
+        <h2> <a href="{% url 'post:create'%}" target="_blank">Add New Post</a>
+            <h2>
+
+                {% for post in all_posts %}
+
+                <h3> <a href="{% url 'post:Single-post' post.id %}" target="_blank">{{post.title}}</a>
+                    <h3>
+
+                        {% endfor %}
