@@ -1,10 +1,22 @@
-<form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-
-{{form}}
-    <br>
+{% extends "base.html" %}
 
 
-    <button type="submit">Save Post</button>
+{% load static %}
 
-</form>
+
+{% block body%}
+
+<body>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{form}}
+        <br>
+
+
+        <button type="submit">Save Post</button>
+
+    </form>
+
+{% endblock body%}

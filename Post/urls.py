@@ -13,5 +13,7 @@ urlpatterns = [
     path('<int:id>/edit/', views.edit_post, name='edit_post'),
     
     path('<int:id>/delete/', views.delete_post, name='delete_post'),
+    
+    path('about_us/', views.about_us, name='about_us'),
     # path('Post', views.product, name='product'),
 ]

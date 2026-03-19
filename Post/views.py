@@ -3,10 +3,23 @@ from django.shortcuts import render , get_object_or_404 , redirect
 
 from .models import Post
 from .forms import PostForm
+from django.db.models import Q
 
 def all_posts(request):
     all_posts = Post.objects.all()
-    # all_posts = Post.objects.filter(active=True)
+    
+    query = request.GET.get('q')
+    
+    if query:
+        all_posts = all_posts.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        )
+    status = request.GET.get('status')
+    if status == 'active':
+        all_posts = all_posts.filter(active=True)
+    elif status == 'inactive':
+        all_posts = all_posts.filter(active=False)
+    
     context = {
         'all_posts' : all_posts,
         
@@ -71,3 +84,12 @@ def delete_post(request, id):
     
 
     return render(request, 'post/delete_post.html', {'post': post})
+
+def about_us(request):
+    post = Post.objects.all()
+    
+    context = {
+        'post' : post,
+    }
+    return render(request, 'post/about_us.html', context)
+    

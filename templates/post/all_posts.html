@@ -1,68 +1,27 @@
-{% comment %} {% extends "base.html" %}
+{% extends "base.html" %}
+
+
 {% load static %}
 
-{% block content%} {% endcomment %}
-{% comment %} <h1>Hello, Welcome in our Blog<h1> {% endcomment %}
-        {% comment %}
-        <h2> <a href="{% url 'post:create'%}" target="_blank">Add New Post</a>
-            <h2>
 
-                {% for post in all_posts %}
-
-                <h3> <a href="{% url 'post:Single-post' post.id %}" target="_blank">{{post.title}}</a>
-                    <h3>
-
-                        {% endfor %} {% endcomment %}
-
-
-                        <!doctype html>
-                        <html lang="en">
-
-                        <head>
-                            <meta charset="utf-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-                            <link rel="stylesheet"
-                                href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-                            <link rel="stylesheet" href="style.css">
-
-                            <title>Python News</title>
-                        </head>
-
-                        <body>
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                                <a class="navbar-brand" href="#">Python News</a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                            </nav>
-
-
+{% block body%}
+                        <body class="all-posts">
                             <div class="contanier">
                                 <div class="row justify-content-center">
                                     {% for post in all_posts %}
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 multi-post">
                                         {% if post.img %}
                                         <img src="{{post.img.url}}" class="card-img-top" alt="...">
                                         {% endif %}
                                         <div class="card-body">
                                             <h5 class="card-title">{{post.title}}</h5>
-                                            <p class="card-text">{{post.content}}</p>
-                                            <a href="{% url 'post:Single-post' post.id %}" target="_blank" class="btn btn-primary">Know More</a>
+                                            <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                                            <a href="{% url 'post:Single-post' post.id %}" target="_blank"
+                                                class="btn btn-primary">Know More</a>
                                         </div>
                                     </div>
                                     {% endfor %}
                                 </div>
                             </div>
 
-
-                            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-                            <script
-                                src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-                        </body>
-
-                        </html>
-
-                        {% comment %} {% endblock content%} {% endcomment %}
+{% endblock body%}

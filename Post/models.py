@@ -15,6 +15,10 @@ class Post (models.Model):
     
     active = models.BooleanField(default=True)
     
+    # @property
+    # def short_description(self):
+    #     return self.content[:100] + "..."
+    
     #to appeare the name of the data we added in admin panel
     def __str__(self):
         return self.title
