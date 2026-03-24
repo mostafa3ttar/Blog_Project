@@ -1,21 +1,19 @@
-/* start all_post.html */
-body.all-posts {
+/* start home  all_post.html */
+body.all_posts {
     background-color: rgb(14, 2, 34);
 }
 
 
-.all-posts .col-md-4 {
-    max-width: 30%;
-
+.all_posts .col-md-4 {
     padding: 10px;
+    max-width: 30%;
     text-align: center;
     margin: 1%;
     margin-top: 3%;
     background-color: rgb(215, 230, 230);
-    float: left;
 }
 
-.all-posts .card-body {
+.all_posts .card-body {
     background-color: aliceblue;
     margin: 15px;
     margin-top: 3px;
@@ -26,7 +24,7 @@ body.all-posts {
 
 }
 
-.all-posts img {
+.all_posts img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -37,11 +35,11 @@ body.all-posts {
     border-radius: 5%;
 }
 
-/* end all_post.html */
+/* end home  all_post.html */
 
 
 
-/* start detail.html */
+/* start single-post  detail.html */
 body.detail {
     background-color: rgb(14, 2, 34);
 }
@@ -85,7 +83,43 @@ body.detail {
     margin: 20px;
 }
 
-/* end detail.html */
+/* end single-post  detail.html */
+
+
+
+/* start add-post  create.html */
+
+body.add-post {
+    background-color: #afafaf;
+}
+
+.add-post .form {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+
+    margin-top: 1.5%;
+}
+
+/* end add-post  create.html */
+
+
+/* start edit-post  edit.html */
+
+body.edit_post {
+    background-color: #afafaf;
+}
+
+.edit_post .form {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+
+    margin-top: 1.5%;
+}
+
+/* end edit-post  edit.html */
+
 
 /* Start About US */
 
@@ -224,7 +258,9 @@ body.detail {
 }
 
 .responsive-image {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .classic-list {

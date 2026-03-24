@@ -5,23 +5,23 @@
 
 
 {% block body%}
-                        <body class="all-posts">
-                            <div class="contanier">
-                                <div class="row justify-content-center">
-                                    {% for post in all_posts %}
-                                    <div class="col-md-4 multi-post">
-                                        {% if post.img %}
-                                        <img src="{{post.img.url}}" class="card-img-top" alt="...">
-                                        {% endif %}
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{post.title}}</h5>
-                                            <p class="card-text">{{ post.content|truncatewords:30 }}</p>
-                                            <a href="{% url 'post:Single-post' post.id %}" target="_blank"
-                                                class="btn btn-primary">Know More</a>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
 
-{% endblock body%}
+<body class="all_posts">
+    <div class="contanier">
+        <div class="row justify-content-center">
+            {% for post in all_posts %}
+            <div class="col-md-4 multi-post folat-left">
+                {% if post.img %}
+                <img src="{{post.img.url}}" class="card-img-top responsive-image " alt="...">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+                    <a href="{% url 'post:Single-post' post.id %}" target="_blank" class="btn btn-primary">Know More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endblock body%}

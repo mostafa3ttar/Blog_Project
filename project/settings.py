@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Post',
+    "bootstrap4",
+    "django_bootstrap5",
+    "ckeditor",
 ]
 
 MIDDLEWARE = [
@@ -126,3 +129,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+## ck-editor
+
+CKEDITOR_UPLOAD_PATH = "uploads/"

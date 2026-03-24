@@ -8,12 +8,15 @@ from django.db.models import Q
 def all_posts(request):
     all_posts = Post.objects.all()
     
-    query = request.GET.get('q')
+    query = request.GET.get('q', '').strip()
     
     if query:
         all_posts = all_posts.filter(
             Q(title__icontains=query) | Q(content__icontains=query)
         )
+    else:
+        all_posts = Post.objects.all()
+        
     status = request.GET.get('status')
     if status == 'active':
         all_posts = all_posts.filter(active=True)
@@ -22,6 +25,7 @@ def all_posts(request):
     
     context = {
         'all_posts' : all_posts,
+        'query': query,
         
     }
     return render(request, 'post/all_posts.html', context)

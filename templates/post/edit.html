@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load django_bootstrap5 %}
 
 {% load static %}
 
@@ -7,18 +7,17 @@
 {% block body%}
 
 <body class="edit_post">
-<br>
-<br>
-<br>
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
 
-        {{form}}
-        <br>
-
-
-        <button type="submit">Save Post</button>
-
-    </form>
+    <div class="contanier  form">
+        <div class="row justify-content-center">
+            <form action="" method="POST" class="form">
+                {% csrf_token %}
+                {{ form.media }}
+                {% bootstrap_form form %}
+                {% bootstrap_button button_type="submit" content="OK" %}
+                {% bootstrap_button button_type="reset" content="Cancel" %}
+            </form>
+        </div>
+    </div>
 
     {% endblock body%}
