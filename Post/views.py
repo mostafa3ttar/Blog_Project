@@ -4,6 +4,7 @@ from django.shortcuts import render , get_object_or_404 , redirect
 from .models import Post
 from .forms import PostForm
 from django.db.models import Q
+from django.contrib import messages
 
 def all_posts(request):
     all_posts = Post.objects.all()
@@ -43,12 +44,13 @@ def post_detail(request, id):
 
 def create_post(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         
         if form.is_valid():
             new_form = form.save(commit=False)
             new_form.user = request.user
             new_form.save()
+            messages.success(request, "Post Created Successfully.")
             return redirect('/')
         
     else:
@@ -63,7 +65,7 @@ def create_post(request):
 def edit_post(request, id):
     post = get_object_or_404(Post, id=id)
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST,request.FILES, instance=post)
         
         if form.is_valid():
             new_form = form.save(commit=False)

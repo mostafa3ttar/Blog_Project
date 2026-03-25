@@ -1,20 +1,19 @@
 /* start home  all_post.html */
 body.all_posts {
-    background-color: rgb(14, 2, 34);
+    background-color: rgb(208, 203, 216);
 }
 
 
-.all_posts .col-md-4 {
-    max-width: 30%;
+/* .all_posts .col-md-4 {
     padding: 10px;
+    max-width: 30%;
     text-align: center;
     margin: 1%;
     margin-top: 3%;
     background-color: rgb(215, 230, 230);
-    float: left;
-}
+} */
 
-.all_posts .card-body {
+/* .all_posts .card-body {
     background-color: aliceblue;
     margin: 15px;
     margin-top: 3px;
@@ -23,7 +22,7 @@ body.all_posts {
     border: 2px solid lightyellow;
     border-radius: 10px;
 
-}
+} */
 
 .all_posts img {
     display: block;
