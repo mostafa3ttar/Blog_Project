@@ -1,19 +1,42 @@
-/* start home  all_post.html */
-body.all_posts {
-    background-color: rgb(208, 203, 216);
+/* Start Global Rules */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: "Roboto", sans-serif;
+    /* height: 5000px; */
+}
 
-/* .all_posts .col-md-4 {
+/* End Global Rules */
+
+/* Start Nav */
+
+body.navbar {
+    background-color: #22a9bd;
+}
+
+/* End Nav */
+
+
+/* start home  all_post.html */
+body.all_posts {
+    background-color: rgb(14, 2, 34);
+}
+
+.all_posts .col-md-4 {
     padding: 10px;
     max-width: 30%;
     text-align: center;
     margin: 1%;
     margin-top: 3%;
     background-color: rgb(215, 230, 230);
-} */
+}
 
-/* .all_posts .card-body {
+.all_posts .card-body {
     background-color: aliceblue;
     margin: 15px;
     margin-top: 3px;
@@ -22,7 +45,7 @@ body.all_posts {
     border: 2px solid lightyellow;
     border-radius: 10px;
 
-} */
+}
 
 .all_posts img {
     display: block;
@@ -36,7 +59,6 @@ body.all_posts {
 }
 
 /* end home  all_post.html */
-
 
 
 /* start single-post  detail.html */
@@ -278,6 +300,22 @@ body.edit_post {
     background-color: #FFF;
     border: 1px solid #CCC;
 
+}
+
+.all_messages {
+    text-align: center;
+    list-style-type: none;
+    position: fixed !important;
+    left: 10px;
+    z-index: 1050;
+    min-width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: none;
+}
+
+.all_messages.alert-dismissible {
+    padding-right: 4rem;
 }
 
 /* End my framework */

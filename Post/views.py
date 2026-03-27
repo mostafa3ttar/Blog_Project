@@ -50,7 +50,7 @@ def create_post(request):
             new_form = form.save(commit=False)
             new_form.user = request.user
             new_form.save()
-            messages.success(request, "Post Created Successfully.")
+            messages.success(request, "Post Created Successfully!")
             return redirect('/')
         
     else:
@@ -71,6 +71,7 @@ def edit_post(request, id):
             new_form = form.save(commit=False)
             new_form.user = request.user
             new_form.save()
+            messages.success(request, "Post Edited Successfully!")
             return redirect('Post:Single-post', id=id)
         
     else:
@@ -86,6 +87,7 @@ def delete_post(request, id):
     post = get_object_or_404(Post, id=id)
     if request.method == 'POST':
         post.delete()
+        messages.warning(request, "Post Deleted Successfully!")
         return redirect('/')
     
 

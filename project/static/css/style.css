@@ -1,15 +1,30 @@
+/* Start Global Rules */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 70px !important;
+    font-family: "Roboto", sans-serif;
+    /* height: 5000px; */
+}
+
+/* End Global Rules */
+
+
 /* start home  all_post.html */
 body.all_posts {
     background-color: rgb(14, 2, 34);
 }
-
 
 .all_posts .col-md-4 {
     padding: 10px;
     max-width: 30%;
     text-align: center;
     margin: 1%;
-    margin-top: 3%;
     background-color: rgb(215, 230, 230);
 }
 
@@ -36,6 +51,13 @@ body.all_posts {
 }
 
 /* end home  all_post.html */
+
+
+/* Start add-post  create.html */
+
+
+/* End add-post  create.html */
+
 
 
 /* start single-post  detail.html */
@@ -278,5 +300,29 @@ body.edit_post {
     border: 1px solid #CCC;
 
 }
+
+.all_messages {
+    text-align: center;
+    list-style-type: none;
+    position: fixed !important;
+    left: 10px;
+    z-index: 1050;
+    min-width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: none;
+}
+
+
+.position_fixed {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1050;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 
 /* End my framework */
